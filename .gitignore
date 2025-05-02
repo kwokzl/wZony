@@ -1,0 +1,7 @@
+.DS_Store
+result.json
+*副本*/*
+.venv/*
+test.py
+aaa/*
+*.pyc
