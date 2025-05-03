@@ -79,23 +79,24 @@ class  HTMLElement(HTMLNode):
 #         self.nodes.append(node)
 #         return self.nodes
 
-class HTMLSet:#HTML标签节点集
+class HTMLSet(list):#HTML标签节点集
     '''用于存放HTML节点'''
     def __init__(self,nodes:list[HTMLNode]=None):
-        self.nodes=list() if nodes is None else nodes
+        if nodes!=None:self.extend(nodes)
+        pass
     def __lshift__(self,node):# <<运算符
         # if isinstance(node, ForEach):
         #     for item in node.items():
         #         self.nodes.add(item)
             
         # else:
-        self.nodes.append(node)
+        self.append(node)
         return self
     
     def toHTMLString(self):
         string=""
-        if len(self.nodes) > 0:
-            for node in self.nodes:
+        if len(self) > 0:
+            for node in self:
                 string+=node.toHTMLString()
             return string
         else:
@@ -127,9 +128,9 @@ class DoubleMarker(HTMLElement):#定义HTML双标记节点
     '''
     定义HTML双标记元素
     '''
-    def __init__(self,tag:str,innerHTML:list[HTMLNode]|HTMLSet=None,**attribute:dict):
+    def __init__(self,tag:str,innerHTML:HTMLSet=None,**attribute:dict):
         super().__init__(tag,**attribute)
-        self.HTMLSet=list() if innerHTML is None else innerHTML
+        self.HTMLSet = innerHTML if innerHTML!=None else HTMLSet()
 
     def __lshift__(self,node):# <<运算符
         self.HTMLSet.append(node)
@@ -138,16 +139,18 @@ class DoubleMarker(HTMLElement):#定义HTML双标记节点
         attributes=[f"{key}=\"{value}\"" for key,value in self.attributes.items()]
        
         
-        return f"<{self.tag}{" "+" ".join(attributes) if len(attributes)>0 else ""}>{HTMLSet(self.HTMLSet).toHTMLString() if self.HTMLSet != None else ""}</{self.tag}>"
+        return f"<{self.tag}{" "+" ".join(attributes) if len(attributes)>0 else ""}>{self.HTMLSet.toHTMLString() if len(self.HTMLSet)!=0 else ""}</{self.tag}>"
         
     def innerHTML(self,innerHTML:HTMLSet):
-        for item in innerHTML.nodes:
+        for item in innerHTML:
             self.HTMLSet.append(item)
         
         return self
     
     def __str__(self):
         return self.toHTMLString()
+    
+    
 
 class String(HTMLNode,str):
     '''
@@ -155,13 +158,13 @@ class String(HTMLNode,str):
     '''
     def __init__(self,string):
         super().__init__()
-        self.value=string
+        self=string
         
     def toHTMLString(self):
-        return self.value
+        return self
     
     def __str__(self):
-        return self.value
+        return self
     
     def wrapped(self,by:DoubleMarker):
         by.innerHTML(HTMLSet()<<self)
