@@ -6,3 +6,4 @@ test.py
 aaa/*
 *.pyc
 test/*
+__pycache__/*
