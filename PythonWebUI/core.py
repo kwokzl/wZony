@@ -29,9 +29,16 @@ class  HTMLElement(HTMLNode):
 
     def setClass(self,value:str):
         self.attributes["class"]=self.attributes["class"] if ("class" in self.attributes) else ""
-        classList=self.attributes["class"].split(r"\s*")
+        classList=self.attributes["class"].split()
         classList.append(value)
         self.setAttribute("class"," ".join(classList))
+        return self
+    
+    def setStyle(self,key:str,value:str):
+        self.attributes["style"]=self.attributes["style"] if ("style" in self.attributes) else ""
+        classList=self.attributes["style"].split(r"[^;]+")
+        classList.append(f"{key}:{value}")
+        self.setAttribute("style",";".join(classList))
         return self
     
     
