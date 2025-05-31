@@ -62,9 +62,9 @@ class  HTMLElement(HTMLNode):
     def debug(self):
         return self.Debugger(self)
     
-    def __getattr__(self,name):
+    def __getattr__(self,name:str):
         def set(value:str):
-            self.setStyle(name,value)
+            self.setStyle(name.replace("_","-"),value)
             return self
         return set
 
