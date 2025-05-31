@@ -4,11 +4,17 @@ from .. import HTMLNodes as nodes
 # def html(self, innerText:str="", innerHTML:HTMLSet=None, lang:str="", **attribute)->HTMLElement:
 #     return nodes.Html(innerText, innerHTML, lang, attribute)
 
-def VStack(innerHTML:HTMLSet=None):
-    return nodes.Div(innerHTML=innerHTML,class_="VStack")
+class VStack(nodes.Div):
+    def __init__(self,innerHTML:HTMLSet=None,innerText:str='',**attributes):
+        super().__init__(innerHTML=innerHTML if innerHTML else HTMLSet()<<String(innerText),class_='VStack')
+        self.tag='div'
 
-def HStack(innerHTML:HTMLSet=None):
-    return nodes.Div(innerHTML=innerHTML,class_="HStack")
+class HStack(nodes.Div):
+    def __init__(self,innerHTML:HTMLSet=None,innerText:str='',**attributes):
+        super().__init__(innerHTML=innerHTML if innerHTML else HTMLSet()<<String(innerText),class_='VStack')
+        self.tag='div'
+
+
 
 def NavigationBar(title:str,navigationNodes:list[HTMLElement]):
     return nodes.Nav(HTMLSet([
