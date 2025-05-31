@@ -38,6 +38,7 @@ class  HTMLElement(HTMLNode):
         self.attributes["style"]=self.attributes["style"] if ("style" in self.attributes) else ""
         classList=self.attributes["style"].split(r"[^;]+")
         classList.append(f"{key}:{value}")
+        classList=[item for item in classList if item !=""]
         self.setAttribute("style",";".join(classList))
         return self
     
