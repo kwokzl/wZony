@@ -364,3 +364,18 @@ class Summary(DoubleMarker):
         self.setAttribute("class", class_) if class_ else self
         self.setAttribute("style", style) if style else self
 
+class Option(DoubleMarker):
+    def __init__(self, innerText:str="", innerHTML:HTMLSet=None, id:str="", class_:str="", style:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", innerHTML if innerHTML!=None else HTMLSet()<<String(innerText), **attribute)
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
+
+class Select(DoubleMarker):
+    def __init__(self, options:list,dirt=None, id:str="", class_:str="", style:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", ForEach(options,lambda option:Option(option)) if options!=None else HTMLSet()<<String(innerText), **attribute)
+        if options:
+            self.innerHTML=ForEach(options,lambda option:Option(option))
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
