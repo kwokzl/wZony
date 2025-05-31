@@ -60,6 +60,13 @@ class  HTMLElement(HTMLNode):
         
     def debug(self):
         return self.Debugger(self)
+    
+    def __getattr__(self,name):
+        def set(value:str):
+            self.setStyle(name,value)
+            return self
+        return set
+
 
     class Debugger():
         def __init__(self,element):
