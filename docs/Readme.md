@@ -139,7 +139,7 @@ page=Page(HTMLSet([
                 .border_bottom('rgb(218, 218, 218) 1px solid')
                 .font_size('25px')
                 .padding_left('50px')
-          			.justify_content('start'),
+                .justify_content('start'),
         ]))
     ])), 
 ]),head=HTMLSet([
