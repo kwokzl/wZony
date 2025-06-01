@@ -1,7 +1,10 @@
 <div align='center'>
   <h1>PythonWebUI</h1>
   <p>Rapid HTML Construction with Python</p>
+  <br/>
+  <a href='./cn_zh.md'>简体中文</a>
 </div>
+
 
 
 ## Installation
