@@ -7,3 +7,4 @@ aaa/*
 *.pyc
 test/*
 __pycache__/*
+*.code-workspace
