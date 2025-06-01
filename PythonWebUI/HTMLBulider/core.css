@@ -43,6 +43,7 @@ nav .cont{
     display:flex;
     flex-direction:row;
     align-items:center;
+    justify-content: center;
 }
 
 div *:not(nav){
