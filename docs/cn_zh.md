@@ -111,7 +111,7 @@ class Person:
 students=[Person("Tom",18,'Male'),Person("Alice",19,'Female'),Person("Ken",20,'Male')]
 
 page=Page(HTMLSet([
-    NavigationBar("Students",[A("All Student",href="#").color('gray').text_decoration('none')]),
+    NavigationBar("Students",[A("Roster",href="#").color('gray').text_decoration('none')]),
     VStack(HTMLSet([
         ForEach(students,lambda student: HTMLSet([
             HStack(HTMLSet([
@@ -128,7 +128,8 @@ page=Page(HTMLSet([
                 .text_align('left')
                 .border_bottom('rgb(218, 218, 218) 1px solid')
                 .font_size('25px')
-                .padding_left('50px'),
+                .padding_left('50px')
+          			.justify_content('start'),
         ]))
     ])), 
 ]),head=HTMLSet([
