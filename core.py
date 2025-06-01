@@ -85,6 +85,10 @@ class  HTMLElement(HTMLNode):
 
         def getId(self):
             self.getAttribute("id")
+
+        def __getattr__(self,name:str):
+            self.getAttribute(name)
+            return self.element
         
 # class Nodes:
 #     def __init__(self,*node:HTMLNode):
