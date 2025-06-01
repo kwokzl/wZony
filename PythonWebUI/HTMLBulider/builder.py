@@ -11,7 +11,7 @@ class VStack(nodes.Div):
 
 class HStack(nodes.Div):
     def __init__(self,innerHTML:HTMLSet=None,innerText:str='',**attributes):
-        super().__init__(innerHTML=innerHTML if innerHTML else HTMLSet()<<String(innerText),class_='VStack')
+        super().__init__(innerHTML=innerHTML if innerHTML else HTMLSet()<<String(innerText),class_='HStack')
         self.tag='div'
 
 
