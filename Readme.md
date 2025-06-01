@@ -2,8 +2,9 @@
   <h1>PythonWebUI</h1>
   <p>Rapid HTML Construction with Python</p>
   <br/>
-  <a href='./cn_zh.md'>简体中文</a>
+  <a href='./docs/cn_zh.md'>简体中文</a>
 </div>
+
 
 
 
@@ -13,9 +14,11 @@
 
 ### Via Pip
 
-> [!IMPORTANT]
->
-> PythonWebUI is currently in Beta and does not yet support Pip installation. Please manually add this package to your project.
+```
+pip install pythonwebui
+```
+
+
 
 
 
@@ -104,7 +107,7 @@ def demoPage(request):
 
 ### Student Roster
 
-![Demo](./imgs/demo1.png)
+![Demo](./docs/imgs/demo1.png)
 
 ```Python
 from PythonWebUI import *

@@ -8,3 +8,6 @@ aaa/*
 test/*
 __pycache__/*
 *.code-workspace
+dist/*
+build/*
+PythonWebUI.egg-info/*

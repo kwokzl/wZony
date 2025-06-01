@@ -7,9 +7,11 @@
 
 ### 通过Pip
 
-> [!IMPORTANT]
->
-> PythonWebUI目前正处于Beta阶段，因而暂时不支持通过Pip安装。请手动将此包添加到您的项目中。
+```
+pip install pythonwebui
+```
+
+
 
 
 
