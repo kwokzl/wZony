@@ -8,7 +8,7 @@
 ### 通过Pip
 
 ```
-pip install pythonwebui
+pip install PythonWebUI
 ```
 
 

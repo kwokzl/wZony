@@ -15,7 +15,7 @@
 ### Via Pip
 
 ```
-pip install pythonwebui
+pip install PythonWebUI
 ```
 
 

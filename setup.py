@@ -5,7 +5,7 @@ with open("Readme.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="PythonWebUI",
-    version="0.1.0",
+    version="0.1.1",
     author="Zonglin Guo",
     description="Rapid HTML Construction with Python.",
     long_description=long_description,
