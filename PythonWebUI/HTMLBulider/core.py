@@ -28,7 +28,8 @@ def Page(body:HTMLSet,head:HTMLSet=None):
             nodes.Head(HTMLSet([
                 head if head else HTMLSet(),
                 nodes.Meta(charset='utf-8'),
-                nodes.Style(coreCss.read())
+                nodes.Style(coreCss.read()),
+                nodes.Style(body.specificStyle)
             ])),
             nodes.Body(body)
         ]))
