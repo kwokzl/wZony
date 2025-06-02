@@ -21,16 +21,6 @@ class HStack(nodes.Div):
 
 
 
-def NavigationBar(title:str,navigationNodes:list[HTMLElement]):
-    return nodes.Nav(HTMLSet([
-        nodes.Div(HTMLSet([
-            nodes.Div(title,class_="title"),
-            nodes.Ul(
-                
-                ForEach(navigationNodes,lambda node: nodes.Li(node))
-            )
-        ]),class_="cont")
-    ]))
     
 def Page(body:HTMLSet,head:HTMLSet=None):
     with open(coreCss_path) as coreCss:
