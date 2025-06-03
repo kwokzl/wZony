@@ -19,7 +19,7 @@ setuptools.setup(
         "Tracker": "https://github.com/kwokzl/wZony/issues",
     },
     classifiers=[
-        "License :: OSI APPROVED :: APACHE SOFTWARE LICENSE",
+        "LICENSE :: OSI APPROVED :: APACHE SOFTWARE LICENSE",
         "TOPIC :: INTERNET :: WWW/HTTP",
         "TOPIC :: TEXT PROCESSING :: MARKUP :: HTML",
         "PROGRAMMING LANGUAGE :: PYTHON"
