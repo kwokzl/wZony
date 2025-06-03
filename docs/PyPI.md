@@ -1,7 +1,8 @@
 <div align='center'>
-  <h1>PythonWebUI</h1>
-  <p>Rapid HTML Construction with Python</p>
+  <h1>wZony</h1>
+  <p>Quickly Build WebUI with Python</p>
 </div>
+
 
 
 
@@ -14,7 +15,7 @@
 ### Via Pip
 
 ```
-pip install PythonWebUI
+pip install wZony
 ```
 
 
@@ -28,9 +29,9 @@ pip install PythonWebUI
 ### Rapid Construction with HBulider
 
 ```Python
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
-from PythonWebUI.HTMLBulider import *
+from wzony import *
+from wzony.HNodes import *
+from wzony.HBulider import *
 
 page=Page(
           HTMLSet([
@@ -50,8 +51,8 @@ page=Page(
 ### HTML-Only Construction
 
 ```Python
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
+from wzony import *
+from wzony.HNodes import *
 
 page=Html(HTMLSet([
         Head(HTMLSet([
@@ -86,9 +87,9 @@ with open('./demo.html','w') as html:
 
 ```Python
 from django.http import HttpResponse
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
-from PythonWebUI.HTMLBulider import *
+from wzony import *
+from wzony.HNodes import *
+from wzony.HBulider import *
 
 page=Page(
           HTMLSet([
@@ -109,9 +110,9 @@ def demoPage(request):
 ![Demo](https://github.com/kwokzl/PythonWebUI/blob/main/docs/imgs/demo1.png?raw=true)
 
 ```Python
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
-from PythonWebUI.HTMLBulider import *
+from wzony import *
+from wzony.HNodes import *
+from wzony.HBulider import *
 
 class Person:
     def __init__(self,name,age,gender,photo='./image.jpg'):
