@@ -10,18 +10,19 @@ setuptools.setup(
     description="Quickly Build WebUI with Python.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    #url="https://github.com/kwokzl/PythonWebUI",
+    #url="https://github.com/kwokzl/wZony",
     packages=setuptools.find_packages(),
     python_requires='>=3.6',
+    license = "Apache",
     project_urls={
         
         "Source": "https://github.com/kwokzl/wZony",
         "Tracker": "https://github.com/kwokzl/wZony/issues",
     },
     classifiers=[
-        "LICENSE :: OSI APPROVED :: APACHE SOFTWARE LICENSE",
-        "TOPIC :: INTERNET :: WWW/HTTP",
-        "TOPIC :: TEXT PROCESSING :: MARKUP :: HTML",
-        "PROGRAMMING LANGUAGE :: PYTHON"
+        "License :: OSI Approved :: Apache Software License",
+        "Topic :: Internet :: WWW/HTTP",
+        "Topic :: Text Processing :: Markup :: HTML",
+        "Programming Language :: Python :: 3"
     ]
 )
