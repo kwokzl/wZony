@@ -1,14 +1,15 @@
 <div align='center'>
-  <h1>PythonWebUI</h1>
-  <p>用Python快速构建HTML</p>
+  <h1>wZony</h1>
+  <p>用Python快速构建WebUI</p>
 </div>
+
 
 ## 安装
 
 ### 通过Pip
 
 ```
-pip install PythonWebUI
+pip install wZony
 ```
 
 
@@ -17,12 +18,12 @@ pip install PythonWebUI
 
 ## 快速开始
 
-### 使用HTMLBulider快速构建
+### 使用HBulider快速构建
 
 ```Python
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
-from PythonWebUI.HTMLBulider import *
+from wzony import *
+from wzony.HNodes import *
+from wzony.HBulider import *
 
 page=Page(
           HTMLSet([
@@ -40,8 +41,8 @@ page=Page(
 ### 仅构建HTML
 
 ```Python
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
+from wzony import *
+from wzony.HNodes import *
 
 page=Html(HTMLSet([
         Head(HTMLSet([
@@ -76,9 +77,9 @@ with open('./demo.html','w') as html:
 
 ```Python
 from django.http import HttpResponse
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
-from PythonWebUI.HTMLBulider import *
+from wzony import *
+from wzony.HNodes import *
+from wzony.HBulider import *
 
 page=Page(
           HTMLSet([
@@ -99,9 +100,9 @@ def demoPage(request):
 ![Demo](./imgs/demo1.png)
 
 ```Python
-from PythonWebUI import *
-from PythonWebUI.HTMLNodes import *
-from PythonWebUI.HTMLBulider import *
+from wzony import *
+from wzony.HNodes import *
+from wzony.HBulider import *
 
 class Person:
     def __init__(self,name,age,gender,photo='./image.jpg'):

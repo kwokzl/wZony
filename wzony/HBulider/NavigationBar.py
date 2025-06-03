@@ -1,5 +1,5 @@
 from ..core import *
-from .. import HTMLNodes as nodes
+from .. import HNodes as nodes
 
 specificStyle="""
 nav{

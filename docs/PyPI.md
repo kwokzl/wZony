@@ -25,7 +25,7 @@ pip install PythonWebUI
 
 
 
-### Rapid Construction with HTMLBulider
+### Rapid Construction with HBulider
 
 ```Python
 from PythonWebUI import *

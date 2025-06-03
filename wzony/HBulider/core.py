@@ -1,5 +1,5 @@
 from ..core import *
-from .. import HTMLNodes as nodes
+from .. import HNodes as nodes
 import os
  
 current_path = os.path.abspath(__file__)
