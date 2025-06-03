@@ -4,10 +4,10 @@ with open("./docs/PyPI.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="PythonWebUI",
-    version="0.1.1",
+    name="wZony",
+    version="0.2.0",
     author="Zonglin Guo",
-    description="Rapid HTML Construction with Python.",
+    description="Quickly Build WebUI with Python.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     #url="https://github.com/kwokzl/PythonWebUI",
@@ -15,8 +15,8 @@ setuptools.setup(
     python_requires='>=3.6',
     project_urls={
         
-        "Source": "https://github.com/kwokzl/PythonWebUI",
-        "Tracker": "https://github.com/kwokzl/PythonWebUI/issues",
+        "Source": "https://github.com/kwokzl/wZony",
+        "Tracker": "https://github.com/kwokzl/wZony/issues",
     },
     classifiers=[
         "License :: OSI APPROVED :: APACHE SOFTWARE LICENSE",
