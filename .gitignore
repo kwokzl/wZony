@@ -10,4 +10,4 @@ __pycache__/*
 *.code-workspace
 dist/*
 build/*
-PythonWebUI.egg-info/*
+wZony.egg-info/*
