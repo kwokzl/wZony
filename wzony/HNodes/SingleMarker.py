@@ -1,4 +1,5 @@
 from ..core import *
+from .Markers import *
 
 class HTMLSingleTagFactory:
     @staticmethod
@@ -54,18 +55,7 @@ class HTMLSingleTagFactory:
         globals()[tag_name] = tag_class
         return tag_class
 
-__TAG_CONFIGS = {
-    'Img': {'standard_attrs': ['src', 'alt', 'width', 'height', 'id', 'class', 'style'], 'bool_attrs': []},
-    'Meta': {'standard_attrs': ['name', 'content', 'charset', 'http_equiv'], 'bool_attrs': []},
-    'Br': {'standard_attrs': ['id', 'class', 'style'], 'bool_attrs': []},
-    'Hr': {'standard_attrs': ['id', 'class', 'style', 'size', 'width', 'align'], 'bool_attrs': []},
-    'Input': {'standard_attrs': ['type', 'name', 'value', 'placeholder', 'id', 'class', 'style'], 'bool_attrs': ['disabled', 'readonly']},
-    'Link': {'standard_attrs': ['href', 'rel', 'type', 'sizes', 'media', 'id', 'class', 'style'], 'bool_attrs': []},
-    'Base': {'standard_attrs': ['href', 'target'], 'bool_attrs': []},
-    'Area': {'standard_attrs': ['shape', 'coords', 'href', 'alt', 'target'], 'bool_attrs': []},
-    'Col': {'standard_attrs': ['span', 'width', 'id', 'class', 'style'], 'bool_attrs': []},
-    'Param': {'standard_attrs': ['name', 'value'], 'bool_attrs': []}
-}
+__TAG_CONFIGS = SingleMarkers
 
 for tag_name, config in __TAG_CONFIGS.items():
     globals()[tag_name] = HTMLSingleTagFactory.create_tag_class(
