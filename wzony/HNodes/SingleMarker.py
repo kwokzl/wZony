@@ -81,7 +81,7 @@ def customSingleTag(tag_name, standard_attrs=None, bool_attrs=None):
                 standard_attrs=['data-id'],
                 bool_attrs=['active']
             )
-            tag = MyTag('Content', data_id='123', active=True)
+            tag = MyTag(data_id='123', active=True)
     """
     return HTMLSingleTagFactory.__create_custom_tag_help__(
         tag_name,
