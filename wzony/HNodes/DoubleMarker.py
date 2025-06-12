@@ -15,7 +15,7 @@ class HTMLDoubleTagFactory:
                 if standard_attrs:
                     for attr in standard_attrs:
                         if attr in attrs:
-                            self.setAttribute(attr, attrs[attr])
+                            self.setAttribute(attr.replace("_",""), attrs[attr])
                 
                 if bool_attrs:
                     for attr in bool_attrs:
