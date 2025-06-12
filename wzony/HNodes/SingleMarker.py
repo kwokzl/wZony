@@ -1,90 +1,94 @@
 from ..core import *
-from .Markers import *
 
-class HTMLSingleTagFactory:
-    @staticmethod
-    def create_tag_class(tag_name, standard_attrs=None, bool_attrs=None):
-        class DynamicSingleTag(SingleMarker):
-            def __init__(self, **attrs):
-                super().__init__(tag_name.lower(), **attrs)
-                
-                if standard_attrs:
-                    for attr in standard_attrs:
-                        if attr in attrs:
-                            self.setAttribute(attr.replace("_",""), attrs[attr])
-                
-                if bool_attrs:
-                    for attr in bool_attrs:
-                        if attrs.get(attr, False):
-                            self.setAttribute(attr.replace("_",""), attr)
-        
-        return DynamicSingleTag
+class Img(SingleMarker):
+    def __init__(self, src:str="", alt:str="", width:str="", height:str="", id:str="", class_:str="", style:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("src", src) if src else self
+        self.setAttribute("alt", alt) if alt else self
+        self.setAttribute("width", width) if width else self
+        self.setAttribute("height", height) if height else self
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
 
-    @staticmethod
-    def __create_custom_tag_help__(tag_name, standard_attrs=None, bool_attrs=None):
-        """Create and register a custom HTML single tag dynamically.
-        
-        :param tag_name: (str) Name of the custom tag
-        :param standard_attrs: (list) List of standard attributes
-        :param bool_attrs: (list) List of boolean attributes
-        
-        :return: The created custom tag class
-        :raises ValueError: If tag_name is not a string or is empty, or if the tag already exists
+class Meta(SingleMarker):
+    def __init__(self, name:str="", content:str="", charset:str="", http_equiv:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("name", name) if name else self
+        self.setAttribute("content", content) if content else self
+        self.setAttribute("charset", charset) if charset else self
+        self.setAttribute("http-equiv", http_equiv) if http_equiv else self
 
-        Example:
+class Br(SingleMarker):
+    def __init__(self, id:str="", class_:str="", style:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
 
-            MySingleTag = HTMLSingleTagFactory.create_custom_tag(
-                'MySingleTag',
-                standard_attrs=['data-id'],
-                bool_attrs=['active']
-            )
-            tag = MySingleTag(data_id='123', active=True)
-        """
-        if not isinstance(tag_name, str) or not tag_name:
-            raise ValueError("Tag name must be a non-empty string")
-            
-        if tag_name in globals():
-            raise ValueError(f"Tag '{tag_name}' already exists")
-            
-        tag_class = HTMLSingleTagFactory.create_tag_class(
-            tag_name,
-            standard_attrs or [],
-            bool_attrs or []
-        )
-        
-        globals()[tag_name] = tag_class
-        return tag_class
+class Hr(SingleMarker):
+    def __init__(self, id:str="", class_:str="", style:str="", size:str="", width:str="", align:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
+        self.setAttribute("size", size) if size else self
+        self.setAttribute("width", width) if width else self
+        self.setAttribute("align", align) if align else self
 
-__TAG_CONFIGS = SingleMarkers
+class Input(SingleMarker):
+    def __init__(self, type:str="text", name:str="", value:str="", placeholder:str="", id:str="", class_:str="", style:str="", disabled:bool=False, readonly:bool=False, **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("type", type)
+        self.setAttribute("name", name) if name else self
+        self.setAttribute("value", value) if value else self
+        self.setAttribute("placeholder", placeholder) if placeholder else self
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
+        if disabled:
+            self.setAttribute("disabled", "disabled")
+        if readonly:
+            self.setAttribute("readonly", "readonly")
 
-for tag_name, config in __TAG_CONFIGS.items():
-    globals()[tag_name] = HTMLSingleTagFactory.create_tag_class(
-        tag_name,
-        config['standard_attrs'],
-        config['bool_attrs']
-    )
+class Link(SingleMarker):
+    def __init__(self, href:str="", rel:str="", type:str="", sizes:str="", media:str="", id:str="", class_:str="", style:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("href", href) if href else self
+        self.setAttribute("rel", rel) if rel else self
+        self.setAttribute("type", type) if type else self
+        self.setAttribute("sizes", sizes) if sizes else self
+        self.setAttribute("media", media) if media else self
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
 
-def customSingleTag(tag_name, standard_attrs=None, bool_attrs=None):
-    """Create and register a custom HTML tag dynamically.
-        
-        :param tag_name: (str) Name of the custom tag
-        :param standard_attrs: (list) List of standard attributes
-        :param bool_attrs: (list) List of boolean attributes
-        
-        :return: The created custom tag class
-        :raises ValueError: If tag_name is not a string or is empty, or if the tag already exists
+class Base(SingleMarker):
+    def __init__(self, href:str="", target:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("href", href) if href else self
+        self.setAttribute("target", target) if target else self
 
-        Example:
+class Area(SingleMarker):
+    def __init__(self, shape:str="", coords:str="", href:str="", alt:str="", target:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("shape", shape) if shape else self
+        self.setAttribute("coords", coords) if coords else self
+        self.setAttribute("href", href) if href else self
+        self.setAttribute("alt", alt) if alt else self
+        self.setAttribute("target", target) if target else self
 
-            MyTag = customSingleTag(
-                'MyTag',
-                standard_attrs=['data-id'],
-                bool_attrs=['active']
-            )
-            tag = MyTag(data_id='123', active=True)
-    """
-    return HTMLSingleTagFactory.__create_custom_tag_help__(
-        tag_name,
-        standard_attrs or [],
-        bool_attrs or []
-    )
+class Col(SingleMarker):
+    def __init__(self, span:str="", width:str="", id:str="", class_:str="", style:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("span", span) if span else self
+        self.setAttribute("width", width) if width else self
+        self.setAttribute("id", id) if id else self
+        self.setAttribute("class", class_) if class_ else self
+        self.setAttribute("style", style) if style else self
+
+class Param(SingleMarker):
+    def __init__(self, name:str="", value:str="", **attribute):
+        super().__init__(f"{self.__class__.__name__.lower()}", **attribute)
+        self.setAttribute("name", name) if name else self
+        self.setAttribute("value", value) if value else self
