@@ -118,7 +118,7 @@ page=Page(HTMLSet([
     VStack(HTMLSet([
         ForEach(students,lambda student: HTMLSet([
             HStack(HTMLSet([
-                Img(student.photo)
+                Img(src=student.photo)
                     .width('60px')
                     .border_radius('500px'),
                 VStack(HTMLSet([
