@@ -22,14 +22,14 @@ class HStack(nodes.Div):
 
 
     
-def Page(body:HTMLSet,head:HTMLSet=None):
+def Page(body:HTMLSet,head:HTMLSet=None,charset='utf-8'):
     with open(coreCss_path) as coreCss:
         return nodes.Html(HTMLSet([
             nodes.Head(HTMLSet([
                 head if head else HTMLSet(),
-                nodes.Meta(charset='utf-8'),
+                nodes.Meta(charset=charset),
                 nodes.Style(coreCss.read()),
-                nodes.Style(body.specificStyle)
+                nodes.Style("\n".join([style for style in body.specificStyle]))
             ])),
             nodes.Body(body)
         ]))

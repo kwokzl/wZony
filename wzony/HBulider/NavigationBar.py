@@ -39,5 +39,5 @@ def NavigationBar(title:str,navigationNodes:list[HTMLElement]):
             )
         ]),class_="cont")
     ]))
-    element.specificStyle=specificStyle
+    element.specificStyle.add(specificStyle)
     return element

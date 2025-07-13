@@ -14,11 +14,11 @@ class HTMLNode:#定义HTML节点
 
 
 class  HTMLElement(HTMLNode):
-    def __init__(self, tag, specificStyle="" ,**attribute):
+    def __init__(self, tag, specificStyle=None ,**attribute):
         super().__init__()
         self.tag=tag
         self.attributes=attribute
-        self.specificStyle=specificStyle
+        self.specificStyle=specificStyle if specificStyle else set()
         
     def setAttribute(self,key:str,value:str=""):
         self.attributes[key.lower()]=value
@@ -103,9 +103,9 @@ class HTMLSet(list):#HTML标签节点集
     '''用于存放HTML节点'''
     def __init__(self,nodes:list[HTMLNode]=None):
         if nodes!=None:self.extend(nodes)
-        self.specificStyle=""
+        self.specificStyle=set()
         for node in self:
-            self.specificStyle+=node.specificStyle
+            self.specificStyle.update(node.specificStyle)
         
     def __lshift__(self,node):# <<运算符
         # if isinstance(node, ForEach):
@@ -180,7 +180,7 @@ class String(HTMLNode,str):
     定义HTML字符节点
     '''
     def __init__(self,string):
-        self.specificStyle=""
+        self.specificStyle=set()
         super().__init__()
         self=string
         
