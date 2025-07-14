@@ -28,4 +28,4 @@ class Localization(dict):
 
     def __missing__(self,key):
         print(f"{key} is undefined")
-        return ""
+        return key
