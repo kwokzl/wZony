@@ -1,9 +1,9 @@
 name: Generate-pyi
 on:
     push:
-        paths: ['DoubleMarker.py','SingleMarker.py']
+        paths: ['wzony/HNodes/DoubleMarker.py','wzony/HNodes/SingleMarker.py']
     pull_request: 
-        paths: ['DoubleMarker.py','SingleMarker.py']
+        paths: ['wzony/HNodes/DoubleMarker.py','wzony/HNodes/SingleMarker.py']
 jobs:
     Generate-Push:
         runs-on: ubuntu-latest
