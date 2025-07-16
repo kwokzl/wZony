@@ -52,6 +52,7 @@ DoubleMarkers = {
     'Header': {'standard_attrs': ['id', 'class_', 'style'], 'bool_attrs': []},
     'Nav': {'standard_attrs': ['id', 'class_', 'style'], 'bool_attrs': []},
     'Section': {'standard_attrs': ['id', 'class_', 'style'], 'bool_attrs': []},
+    'Code': {'standard_attrs': [], 'bool_attrs': []},
 }
 
 SingleMarkers = {
