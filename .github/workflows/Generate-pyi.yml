@@ -1,0 +1,30 @@
+name: Generate-pyi
+on:
+    push:
+        paths: ['DoubleMarker.py','SingleMarker.py']
+    pull_request: 
+        paths: ['DoubleMarker.py','SingleMarker.py']
+jobs:
+    Generate-Push:
+        runs-on: ubuntu-latest
+        steps:
+         - name: Checkout code
+           uses: actions/checkout@v4
+           with:
+              ref: ${{ github.ref_name }}
+
+         - name: Set up Python
+           uses: actions/setup-python@v5
+           with:
+              python-version: '3.13'
+
+         - name: Run generator script
+           run: python ./wzony/HNodes/Markers.py
+
+         - name: Commit generated file
+           run: |
+             git config user.name "GitHub Actions Bot"
+             git config user.email "noreply@github.com"
+             git add .
+             git commit -m "Auto-generate files" || echo "No changes to commit"
+             git push
