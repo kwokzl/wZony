@@ -9,13 +9,13 @@ package_dir = os.path.dirname(current_path)
 class VStack(nodes.Div):
     def __init__(self,innerHTML:list=None,**attributes):
         super().__init__(innerHTML=None,**attributes)
-        self.innerHTML(ForEach(innerHTML,lambda i:i))
+        self.setInnerHTML(ForEach(innerHTML,lambda i:i))
         self.setClass('d-flex').setClass('flex-column').setClass('gap-3')
 
 class HStack(nodes.Div):
     def __init__(self,innerHTML:list=None,**attributes):
         super().__init__(innerHTML=None,**attributes)
-        self.innerHTML(ForEach(innerHTML,lambda i:i))
+        self.setInnerHTML(ForEach(innerHTML,lambda i:i))
         self.setClass('d-flex').setClass('flex-row').setClass('gap-3')
         
     

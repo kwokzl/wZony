@@ -164,7 +164,7 @@ class DoubleMarker(HTMLElement):#定义HTML双标记节点
         
         return f"<{self.tag}{" "+" ".join(attributes) if len(attributes)>0 else ""}>{self.HTMLSet.toHTMLString() if len(self.HTMLSet)!=0 else ""}</{self.tag}>"
         
-    def innerHTML(self,innerHTML:HTMLSet):
+    def setInnerHTML(self,innerHTML:HTMLSet):
         for item in innerHTML:
             self.HTMLSet.append(item)
         
@@ -191,7 +191,7 @@ class String(HTMLNode,str):
         return self
     
     def wrapped(self,by:DoubleMarker):
-        by.innerHTML(HTMLSet()<<self)
+        by.setInnerHTML(HTMLSet()<<self)
         return String(by.toHTMLString())
         
         
