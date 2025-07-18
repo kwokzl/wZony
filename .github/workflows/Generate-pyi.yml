@@ -2,12 +2,7 @@ name: Generate-pyi
 on:
     push:
         paths: ['wzony/HNodes/Markers.py']
-        branches:
-         - '**'  
-    pull_request: 
-        paths: ['wzony/HNodes/Markers.py']
-        branches:
-         - '**'  
+        branches: ['develop']
 jobs:
     Generate-Push:
         runs-on: ubuntu-latest
