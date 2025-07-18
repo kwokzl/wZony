@@ -4,33 +4,33 @@ import os
  
 current_path = os.path.abspath(__file__)
 package_dir = os.path.dirname(current_path)
-coreCss_path = os.path.join(package_dir, 'core.css')
-
-# def html(self, innerText:str="", innerHTML:HTMLSet=None, lang:str="", **attribute)->HTMLElement:
-#     return nodes.Html(innerText, innerHTML, lang, attribute)
+# coreCss_path = os.path.join(package_dir+'/static', 'core.css')
 
 class VStack(nodes.Div):
-    def __init__(self,innerHTML:HTMLSet=None,innerText:str='',**attributes):
-        super().__init__(innerHTML=innerHTML if innerHTML else HTMLSet()<<String(innerText),class_='VStack')
-        self.tag='div'
+    def __init__(self,innerHTML:list=None,**attributes):
+        super().__init__(innerHTML=None,**attributes)
+        self.innerHTML(ForEach(innerHTML,lambda i:i))
+        self.setClass('d-flex').setClass('flex-column').setClass('gap-3')
 
 class HStack(nodes.Div):
-    def __init__(self,innerHTML:HTMLSet=None,innerText:str='',**attributes):
-        super().__init__(innerHTML=innerHTML if innerHTML else HTMLSet()<<String(innerText),class_='HStack')
-        self.tag='div'
-
-
-
+    def __init__(self,innerHTML:list=None,**attributes):
+        super().__init__(innerHTML=None,**attributes)
+        self.innerHTML(ForEach(innerHTML,lambda i:i))
+        self.setClass('d-flex').setClass('flex-row').setClass('gap-3')
+        
     
-def Page(body:HTMLSet,head:HTMLSet=None,title="",charset='utf-8'):
-    with open(coreCss_path) as coreCss:
-        return nodes.Html(HTMLSet([
+class Page(nodes.Html):
+    def __init__(self,body:list,head:list=None,title="",charset='utf-8',bootstrapCss=None,bootstrapScript=None):
+        super().__init__(HTMLSet([
             nodes.Head(HTMLSet([
-                head if head else HTMLSet(),
+                HTMLSet(head) if head else HTMLSet(),
                 nodes.Meta(charset=charset),
                 nodes.Title(title),
-                nodes.Style(coreCss.read()),
-                nodes.Style("\n".join([style for style in body.specificStyle]))
+                
+                # nodes.Style("\n".join([style for style in body.specificStyle])),
+                nodes.Link(href=bootstrapCss if bootstrapCss else 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',rel='stylesheet'),
+                nodes.Style(src=bootstrapScript if bootstrapScript else 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
             ])),
-            nodes.Body(body)
+            nodes.Body(HTMLSet(body))
         ]))
+    

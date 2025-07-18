@@ -180,3 +180,7 @@ class Nav(DoubleMarker):
 class Section(DoubleMarker):
     def __init__(self,id:str,class_:str,style:str):...
 
+
+class Code(DoubleMarker):
+    def __init__(self,):...
+
