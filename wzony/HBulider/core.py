@@ -20,7 +20,7 @@ class HStack(nodes.Div):
         
     
 class Page(nodes.Html):
-    def __init__(self,body:list,head:list=None,title="",charset='utf-8',bootstrapCss=None,bootstrapScript=None):
+    def __init__(self,body:list,head:list=None,title="",charset='utf-8',bootstrapCss=None,bootstrapDarkCss=None,bootstrapScript=None):
         super().__init__(HTMLSet([
             nodes.Head(HTMLSet([
                 HTMLSet(head) if head else HTMLSet(),
@@ -28,7 +28,8 @@ class Page(nodes.Html):
                 nodes.Title(title),
                 
                 # nodes.Style("\n".join([style for style in body.specificStyle])),
-                nodes.Link(href=bootstrapCss if bootstrapCss else 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',rel='stylesheet'),
+                nodes.Link(href=bootstrapCss if bootstrapCss else 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',rel='stylesheet'),
+                nodes.Link(href=bootstrapDarkCss if bootstrapDarkCss else 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-dark.min.css',rel='stylesheet'),
                 nodes.Style(src=bootstrapScript if bootstrapScript else 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
             ])),
             nodes.Body(HTMLSet(body))
