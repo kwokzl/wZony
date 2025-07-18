@@ -44,7 +44,7 @@ class  HTMLElement(HTMLNode):
         return self
     
     
-    def class_(self,value:str):
+    def setClassString(self,value:str):
         self.setAttribute('class',value)
         return self
 
