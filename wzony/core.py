@@ -45,7 +45,7 @@ class  HTMLElement(HTMLNode):
     
     
     def class_(self,value:str):
-        self.attributes["class"]=value
+        self.setAttribute('class',value)
         return self
 
     def id(self,value:str):
